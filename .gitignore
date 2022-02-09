@@ -1,0 +1,10 @@
+packages/
+Tree.Console/bin/Debug/Tree.ConsoleApp.exe
+Tree.Console/bin/Debug/
+Tree.Console/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
+Tree.Console/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+Tree.Console/obj/
+Tree.Test/bin/
+Tree.Test/obj/
+Tree/obj/
+Tree/bin/
