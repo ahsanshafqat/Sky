@@ -42,7 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinaryTree.cs" />
+    <Compile Include="TextFileReader.cs" />
+    <Compile Include="Interfaces\ITextFileReader.cs" />
+    <Compile Include="Interfaces\ITextFileWriter.cs" />
+    <Compile Include="TextFileWriter.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Interfaces\IBinaryTree.cs" />
+    <Compile Include="Interfaces\ITreeNode.cs" />
     <Compile Include="TreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

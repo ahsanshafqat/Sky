@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tree.Interfaces;
 
 namespace Tree
 {
-    public class BinaryTree
+    [Serializable()]
+    public class BinaryTree : IBinaryTree
     {
-        public TreeNode Root { get; private set; }
+        public ITreeNode Root { get; private set; }
+
+        public void SetRoot(ITreeNode treeNode)
+        {
+            this.Root = treeNode;
+        }
 
         public void InsertNode(int value)
         {
@@ -66,7 +73,7 @@ namespace Tree
         //    }
         //}
 
-        public void PostOrder(TreeNode treeNode, List<int> output)
+        public void PostOrder(ITreeNode treeNode, List<int> output)
         {
             if (Root == null)
                 return;
