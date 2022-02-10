@@ -12,8 +12,7 @@ namespace Tree.ConsoleApp
     {
         static void Main(string[] args)
         {
-
-            if (args.Length > 0)
+            if (args.Length > 0 && args[0] != String.Empty)
             {
                 //Read input
                 string[] input = args[0].Split(',');
@@ -23,26 +22,38 @@ namespace Tree.ConsoleApp
                 //Add tree nodes
                 for (int i = 0; i < input.Length; i++)
                 {
-                    int value = Convert.ToInt32(input[i]);
-                    bTree.InsertNode(value);
+                    if (input[i] != String.Empty)
+                    {
+                        int value = Convert.ToInt32(input[i]);
+                        bTree.InsertNode(value);
+                    }
                 }
 
-                //Prepare output
-                List<int> nodes = new List<int>();
+                if (bTree.Root != null)
+                {
+                    //Prepare output
+                    List<int> nodes = new List<int>();
 
-                bTree.PostOrder(bTree.Root, nodes);
+                    bTree.PostOrder(bTree.Root, nodes);
 
-                string output = StringExtensions.Join(",", nodes);
+                    string output = StringExtensions.Join(",", nodes);
 
-                Console.WriteLine(output);
+                    Console.WriteLine(output);
 
-                //Write tree structure on file
-                ITextFileWriter textFileWriter = new TextFileWriter();
+                    //Write tree structure on file
+                    ITextFileWriter textFileWriter = new TextFileWriter();
 
-                textFileWriter.Write("SkyTree.txt", bTree.Root);              
+                    textFileWriter.Write("SkyTree.txt", bTree.Root);
 
-                Console.ReadKey();
+                    Console.WriteLine("Press any key to exit.");
+
+                    Console.ReadKey();
+                }
+                else
+                    Console.WriteLine("Please provide int values in comma separated format.");
             }
+            else
+                Console.WriteLine("Invalid arguments");
         }
     }
 }
